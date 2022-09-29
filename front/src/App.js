@@ -27,7 +27,10 @@ import React from 'react'
 
 function App() {
   return (
-    <div>App</div>
+    <div>
+      Aquí va todo el show a mostrar
+  
+    </div>
   )
 }
 
