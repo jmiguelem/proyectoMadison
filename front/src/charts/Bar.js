@@ -26,7 +26,16 @@ const data = {
     datasets: [
         {
             label: 'Desempeño anual por generación',
-            data: [7, 9, 10, 4, 12, 6, 8]
+            data: [7, 9, 10, 4, 12, 6, 8],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
+            ]
 
         }
     ]
@@ -39,8 +48,8 @@ function BarChart() {
 
 
     return (
-        <div>
-            <h1>BarChart</h1>
+        <div style={{  }}>
+
 
             <Bar data={data} />
 
