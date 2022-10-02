@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import BarChart from './charts/Bar.js'
+// import React, { useState, useEffect } from 'react'
+import BarChart from './charts/Bar'
 
 
 // useState --> state variable wich will contain the data retrieved from the backend 
@@ -24,17 +24,22 @@ function App() {
 
   // }, [])
   return (
-    <div>
-      {/* {(typeof data.members === 'undefined') ? (
-        <p>Loading...</p>
-      ) :
-        (
-          data.members.map((member, i) => (
-            <p key={i}>{member}</p>
-          ))
-        )} */}
-      <BarChart />
+    // <div>
+    //   {/* {(typeof data.members === 'undefined') ? (
+    //     <p>Loading...</p>
+    //   ) :
+    //     (
+    //       data.members.map((member, i) => (
+    //         <p key={i}>{member}</p>
+    //       ))
+    //     )} */}
 
+
+    // </div>
+
+    <div className='App'>
+      
+      <BarChart />
     </div>
   )
 }
