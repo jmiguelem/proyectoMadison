@@ -37,8 +37,8 @@ function App() {
 
     // </div>
 
-    <div className='App'>
-      
+    <div>
+
       <BarChart />
     </div>
   )
