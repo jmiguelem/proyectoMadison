@@ -1,35 +1,37 @@
-// import logo from './logo.svg';
-// import './App.css';
+import React, { useState, useEffect } from 'react'
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-import React from 'react'
+// useState --> state variable wich will contain the data retrieved from the backend 
+// it is used to render the data on the page
+// useEffect --> will be used to fetch the backend API on the first render
 
 function App() {
+
+  const [data, setData] = useState([{}])
+  // data is the actual variable
+  // setData is the function to manipulate the state od the data variable
+
+  useEffect(() => {
+    fetch("/members").then(
+      res => res.json()
+    ).then(
+      data => {
+        setData(data)
+        console.log(data)
+      }
+    )
+
+  }, [])
   return (
     <div>
-      Aquí va todo el show a mostrar
-  
+      {(typeof data.members === 'undefined') ? (
+        <p>Loading...</p>
+      ) :
+        (
+          data.members.map((member, i) => (
+            <p key={i}>{member}</p>
+          ))
+        )}
+
     </div>
   )
 }
