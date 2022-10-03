@@ -1,5 +1,8 @@
-# proyectoMadison
+# Proyecto Madison
 
 Repositorio de proyecto integrador con el Colegio Madison
 
-Se va a desarrollar una aplicacion web para el colegio Madison, para ver el historial de promedio de las generaciones 
+Desarrollo de aplicación web para el colegio Madison con gráficas estadísticas sobre el promedio de las generaciones, materias y su historial.
+
+
+Para correr esta aplicación es necesario escribir este comando:  ``npm run start``

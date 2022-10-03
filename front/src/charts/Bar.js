@@ -2,7 +2,6 @@ import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
 
-
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -45,12 +44,15 @@ const data = {
 
 function BarChart() {
 
-
-
     return (
         <div style={{  }}>
-
-
+            <center>
+                <img
+                    src={process.env.PUBLIC_URL + 'Logo-Madison.png'}
+                    alt="Logo Madison"
+                />
+                <h2>Gráfica estadística de sexto semestre generación 2021 resultados por materia.</h2>
+            </center>
             <Bar data={data} />
 
         </div>
