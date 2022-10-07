@@ -3,6 +3,9 @@ import pandas as pd
 from pandasql import sqldf
 import plotly.express as px
 
+from PIL import Image
+image = Image.open('Logo-Madison.png')
+st.image(image)
 # Carga de datos
 
 
