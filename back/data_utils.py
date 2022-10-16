@@ -7,13 +7,9 @@ import streamlit as st
 def load_data() -> Optional[pd.DataFrame]:
 
     # Leemos el CVS de califiacaiones
-    # return pd.read_csv('Calificaciones.csv')
-
     data_file = st.file_uploader("Upload CSV", type=["csv"])
     if data_file is not None:
-        df2 = pd.read_csv(data_file)
-        
-        
+        df2 = pd.read_csv(data_file)          
         return df2
     else:
         return None
