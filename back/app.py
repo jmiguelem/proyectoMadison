@@ -1,5 +1,5 @@
 from distutils.command.clean import clean
-from json import load
+#from json import load
 from unicodedata import name
 import streamlit as st
 import pandas as pd
@@ -31,13 +31,13 @@ def display_page():
                 'Sciences - Integrated Science')
 
     # Display de un select box con la lista de materias
-    materia = st.selectbox("Materias", materias)
+    materia = st.selectbox("Materias", materias, key='2')
 
     # Cargamos la data tratada
     df = load_data()
-
+    if df is None:
+        return
     df = clean_data(df)
-
     df = transform_data(df)
     # Selecionamos la materia que queremos
     df = df.loc[df['GP3'] == materia]

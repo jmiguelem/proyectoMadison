@@ -1,22 +1,35 @@
-# cargar archivos
+from typing import Optional
 import pandas as pd
 from pandasql import sqldf
+import streamlit as st
 
 
-def load_data() -> pd.DataFrame:
+def load_data() -> Optional[pd.DataFrame]:
+
     # Leemos el CVS de califiacaiones
-    return pd.read_csv('Calificaciones.csv')
+    # return pd.read_csv('Calificaciones.csv')
+
+    data_file = st.file_uploader("Upload CSV", type=["csv"])
+    if data_file is not None:
+        df2 = pd.read_csv(data_file)
+        
+        
+        return df2
+    else:
+        return None
+    
 
 
 # Limpieza de datos
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
-    df = load_data()
+
     # Selecionamos las columnas que queremos
     df = df[['CGIDs', 'GP3', 'Gd3', 'Unnamed: 65']]
     # Borramos las filas que contienen NAN
     df = df.dropna()
     # Le asignamos el nombre Grades a la columna Sin nombre
     df.rename(columns={'Unnamed: 65': 'Grades'}, inplace=True)
+    # transform_data(df)
     return df
 
 # Conversión a SEP
