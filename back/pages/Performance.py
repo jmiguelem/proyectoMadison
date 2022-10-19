@@ -1,20 +1,10 @@
-from distutils.command.clean import clean
-#from json import load
-from unicodedata import name
 import streamlit as st
-import pandas as pd
-from pandasql import sqldf
 import plotly.express as px
-from data_utils import load_data, transform_data,clean_data
 
-from PIL import Image
-
-
+from pages.Load_file import ss
 
 
 # Pagina de Display
-
-
 def display_page():
     # Lista de materias
     materias = ('Language Acquisition - English',
@@ -33,12 +23,12 @@ def display_page():
     # Display de un select box con la lista de materias
     materia = st.selectbox("Materias", materias, key='2')
 
-    # Cargamos la data tratada
-    df = load_data()
-    if df is None:
-        return
-    df = clean_data(df)
-    df = transform_data(df)
+    # df = load_data()
+    # df = clean_data(df)
+    # df = transform_data(df)
+    #st.session_state['Treated_grades'] 
+    df = ss()
+    st.write(df)
     # Selecionamos la materia que queremos
     df = df.loc[df['GP3'] == materia]
 
@@ -59,13 +49,4 @@ def display_page():
     st.plotly_chart(SEP)
     st.plotly_chart(IB)
 
-
-def main():
-    image = Image.open('Logo-Madison.png')
-    st.image(image)
-    # Carga de datos
-    display_page()
-
-
-
-main()
+display_page()
