@@ -60,7 +60,12 @@ def transform_data(df: pd.DataFrame) -> pd.DataFrame:
     df = df.sort_values('Grade', ascending=False)
     return df
 
+def ss(df: pd.DataFrame):
 
+    if 'Treated_grades' not in st.session_state:
+        st.session_state['Treated_grades'] = df
+
+    return df
 
 def treated_data():
 
@@ -72,12 +77,7 @@ def treated_data():
     ss(df)
     st.write(df)
 
-def ss(df: pd.DataFrame):
 
-    if 'Treated_grades' not in st.session_state:
-        st.session_state['Treated_grades'] = df
-
-    return df
 
 
 
