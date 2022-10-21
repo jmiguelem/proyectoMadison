@@ -22,9 +22,7 @@ def display_page():
 
     
 
-    # df = load_data()
-    # df = clean_data(df)
-    # df = transform_data(df)
+   
     #st.session_state['Treated_grades'] 
     if 'Treated_grades' in st.session_state:
         # Display de un select box con la lista de materias
