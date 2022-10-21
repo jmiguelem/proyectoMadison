@@ -38,7 +38,7 @@ def whichColor(materia):
     elif(materia == 'Design'):
         colorGraph = 'DarkMagenta' #no definido
     elif(materia == 'Community Project'):
-        colorGraph = '' #no definido
+        colorGraph = 'DarkSlateGray' #no definido
     elif(materia == 'Arts - Visual Arts'):
         colorGraph = 'Crimson' #no definido
     elif(materia == 'Individuos y Sociedades - Geografía'):
