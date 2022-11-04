@@ -11,7 +11,8 @@ def load_data() -> Optional[pd.DataFrame]:
     data_file = st.file_uploader("Upload CSV", type=["csv"])
     if data_file is not None:
         df = pd.read_csv(data_file)
-        st.write("Success!!")          
+        st.write("Success!!")  
+        st.balloons()        
         return df
         
     else:
