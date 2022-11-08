@@ -1,7 +1,7 @@
 import streamlit as st
 import plotly.express as px
 
-from pages.Load_file import ss
+from Load_file import ss
 
 
 # Pagina de Display

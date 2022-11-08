@@ -1,0 +1,12 @@
+credentials:
+  usernames:
+    DEV:
+      name: Developers
+      password: $2b$12$GtziKpQA32AUI3ILymBNv.nXCutRoWp4H6k9BG6BVSf6BvtgEK1F.
+cookie:
+  expiry_days: 30
+  key: some_signature_key
+  name: some_cookie_name
+preauthorized:
+  emails:
+  - melsby@gmail.com
