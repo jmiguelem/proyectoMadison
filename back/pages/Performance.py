@@ -1,11 +1,22 @@
 import streamlit as st
 import plotly.express as px
+from google.cloud import firestore
+import pandas as pd
 
 from pages.Load_file import ss
 
 
 # Pagina de Display
 def display_page():
+
+    doc_ref = db.collection("documents").document('document')
+
+    doc = doc_ref.get()
+    docdict = []
+    docdict.append(doc.to_dict())
+
+
+
     # Lista de materias
     materias = ('Language Acquisition - English',
                 'Individuos y Sociedades - Formación cívica y ética',
@@ -28,8 +39,12 @@ def display_page():
         # Display de un select box con la lista de materias
         materia = st.selectbox("Materias", materias, key='2')
 
+        #Jalar df de la base de datos
+        # df = pd.DataFrame.from_dict(docdict)
+
         df = st.session_state['Treated_grades']
         # st.write(df)
+
         # Selecionamos la materia que queremos
         df = df.loc[df['GP3'] == materia]
 
@@ -37,7 +52,7 @@ def display_page():
         SEP = px.histogram(df, x="SEP", color_discrete_sequence=[
             'blue', 'blue', 'green'])
         SEP.update_layout(title=materia,
-                        xaxis_title_text='Calificacones SEP',
+                        xaxis_title_text='Calificaciones SEP',
                         yaxis_title_text='Cantidad de alumnos')
         # Histograma IB
         IB = px.histogram(df, x="Grade", color_discrete_sequence=[

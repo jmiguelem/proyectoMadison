@@ -3,17 +3,24 @@ from typing import Optional
 import pandas as pd
 from pandasql import sqldf
 import streamlit as st
+from google.cloud import firestore
 
+fname = ''
 
 def load_data() -> Optional[pd.DataFrame]:
-
+    global fname
     # Leemos el CVS de califiacaiones
     data_file = st.file_uploader("Upload CSV", type=["csv"])
     if data_file is not None:
-        df = pd.read_csv(data_file)
-        st.write("Success!!")          
-        return df
+        fname = data_file.name
+        doc_ref = db.collection("documents").document('document')
+
+        doc = doc_ref.get()
         
+        df = pd.read_csv(data_file)
+        st.write("Success!!")
+        # st.write('File name',fname)      
+        return df
     else:
         return None
 
@@ -67,13 +74,23 @@ def ss(df: pd.DataFrame):
 
     return df
 
-def treated_data():
+def organize(df: pd.DataFrame) -> dict:
+    colCGIDS = df['CGIDs'].values.tolist()
+    colGP3 = df['GP3'].values.tolist()
+    colGrade = df['Grade'].values.tolist()
+    colSEP = df['SEP'].values.tolist()
+    d = {'ids':colCGIDS, 'gp3':colGP3, 'grades':colGrade, 'sep':colSEP}
+    return d
 
+def treated_data():
+    global fname
     df = load_data()
     if df is None:
         return
     df = clean_data(df)
     df = transform_data(df)
+    dataForDb = organize(df)
+    db.collection("documents").document('document').set(dataForDb)
     ss(df)
     st.write(df)
 
