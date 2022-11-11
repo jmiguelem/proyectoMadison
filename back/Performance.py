@@ -8,14 +8,14 @@ from Load_file import ss
 def display_page():
     # Lista de materias
     materias = {'Language Acquisition - English':'blue',
-                'Individuos y Sociedades - Formación cívica y ética':'pink',
+                'Individuos y Sociedades - Formación cívica y ética':'HotPink',
                 'Individuos y Sociedades - Historia de México':'yellow',
-                'Language Acquisition -  French':'purple', 'Lengua y Literatura - Español':'orange',
+                'Language Acquisition -  French':'purple', 'Lengua y Literatura - Español':'OrangeRed',
                 'Mathematics':'red', 'Physical and health education':'black',
                 'Sciences - Chemistry':'green', 'Technology Education':'black', 'Arts - Music':'black',
                 'Individuals and Societies - World History':'yellow',
-                'Lengua y Literatura - Literatura':'light blue', 'Design':'black', 'Community Project':'black',
-                'Arts - Visual Arts':'black', 'Individuos y Sociedades - Geografía':'light green',
+                'Lengua y Literatura - Literatura':'DeepSkyBlue', 'Design':'black', 'Community Project':'black',
+                'Arts - Visual Arts':'black', 'Individuos y Sociedades - Geografía':'YellowGreen',
                 'Individuals and societies - World History':'yellow', 'Sciences - Physics':'green',
                 'Visual Arts':'black', 'Sciences - Biology':'green',
                 'Sciences - Integrated Science':'green'}
