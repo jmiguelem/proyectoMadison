@@ -22,8 +22,8 @@ def login():
     col1, col2 = st.columns([3, 1])
 
     with col1:
-        madison = Image.open('Logo-Madison.png')
-        st.image(madison,width=250)
+        madison = Image.open('Logo-Madison2.png')
+        st.image(madison)
     with col2:
         ib = Image.open('ib-Logo.png')
         st.image(ib,width=100)
@@ -66,9 +66,9 @@ def login():
 def main():
 
     #st.subheader('Madison campus Monterrey')
-    st.title("Concentrado de calificaciones")
-    st.caption("Bienvenido aqui podras encontrar el resumen del desempeño de nuestros estudiantes.")
-    st.caption("Favor de subir un archivo con calificaciones en la página \"Load file\" para que se vea la representación de las calificaciones")
+    st.title("Grades")
+    st.caption("Welcome, here you can find the summary of the performance of our students.")
+    st.caption("Please upload a file with grades on the page \"Load file\" to see the representation of the grades")
     col1, col2 = st.columns(2)
     
 

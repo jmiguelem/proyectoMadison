@@ -36,20 +36,20 @@ def display_page():
         SEP = px.histogram(df, x="SEP", color_discrete_sequence=[
             materias[materia]])
         SEP.update_layout(title=materia,
-                        xaxis_title_text='Calificacones SEP',
-                        yaxis_title_text='Cantidad de alumnos')
+                        xaxis_title_text='SEP Grades',
+                        yaxis_title_text='Number of students')
         # Histograma IB
         IB = px.histogram(df, x="Grade", color_discrete_sequence=[
             materias[materia]], nbins=31)
         IB.update_layout(title=materia,
-                        xaxis_title_text='Calificacones IB',
-                        yaxis_title_text='Cantidad de alumnos')
+                        xaxis_title_text='IB Grades',
+                        yaxis_title_text='Number of students')
 
         # Display de Histogramas SEP-IB
         st.plotly_chart(SEP)
         st.plotly_chart(IB)
     else:
-        st.header("Por favor suba un archivo con calificaciones")
+        st.header("Please upload a file with grades")
 
 display_page()
 # st.write(st.session_state['Treated_grades'])
