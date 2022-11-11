@@ -48,15 +48,34 @@ def assign_grades(row):
         val = '10'
     return val
 
+# Conversión a IB
+def assign_grades_ib(row):
+    if (row['Grade'] < 6):
+        val = '1'
+    elif row['Grade'] < 10:
+        val = '2'
+    elif row['Grade'] < 15:
+        val = '3'
+    elif row['Grade'] < 19:
+        val = '4'
+    elif row['Grade'] < 24:
+        val = '5'
+    elif row['Grade'] < 28:
+        val = '6'
+    else:
+        val = '7'
+    return val
+
 # Transformación de datos
 def transform_data(df: pd.DataFrame) -> pd.DataFrame:
 
     # Selecionamos la info que queremos, y agrupamos por alumno y materia para sacar calificación
-    df = sqldf(
-        'Select CGIDs,GP3, SUM(Grades) AS Grade FROM df GROUP BY  CGIDs,GP3')
+    df = sqldf('Select CGIDs,GP3, SUM(Grades) AS Grade FROM df GROUP BY  CGIDs,GP3')
     df['Grade'] = df['Grade'].astype(int)
     # Agregamos la conversión a SEP
     df['SEP'] = df.apply(assign_grades, axis=1)
+    # Agregamos la conversión a IB
+    df['Grade'] = df.apply(assign_grades_ib, axis=1)
     # Orednamos por Calificación (Ayuda en la parte de vizualiczón)
     df = df.sort_values('Grade', ascending=False)
     return df
