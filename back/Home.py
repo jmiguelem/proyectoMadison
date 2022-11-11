@@ -19,12 +19,15 @@ from Performance import display_page
 
 def login():
     #LOGO
-    col1, col2 = st.columns([3, 1])
+    col1, col2, col3 = st.columns([3, 12, 3])
 
     with col1:
-        madison = Image.open('Logo-Madison2.png')
-        st.image(madison)
+        madison = Image.open('Madison-bg.png')
+        st.image(madison,width=120)
     with col2:
+        madison = Image.open('Letras-bg.png')
+        st.image(madison,width=250)
+    with col3:
         ib = Image.open('ib-Logo.png')
         st.image(ib,width=100)
 

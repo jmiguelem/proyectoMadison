@@ -3,7 +3,6 @@ import pandas as pd
 from pandasql import sqldf
 import streamlit as st
 
-
 def load_data() -> Optional[pd.DataFrame]:
 
     # Leemos el CVS de califiacaiones
